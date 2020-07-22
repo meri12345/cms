@@ -7,12 +7,17 @@
   </div>
     <div class="form-group">
     <label>Type
-    <select   name="type" v-model="rest.type">
-        <option @select="printaj" :value="type" v-for="type in getTypes" :key="type">{{type}}</option>
+    <select  name="type" v-model="rest.type">
+        <option :value="type" v-for="type in getTypes" :key="type">{{type}}</option>
     </select>
     </label>
   </div>
-  <div class="form-group" v-for="el in getProducts[rest.type]" :key="el">
+  <div class="form-group" v-for="el in getProducts['Fast Food']" :key="el">
+    <label >{{el}}
+    <input type="checkbox" :value="el" v-model="rest.food">
+    </label>
+  </div>
+  <div class="form-group" v-for="el in getProducts['Casual Dining']" :key="el">
     <label >{{el}}
     <input type="checkbox" :value="el" v-model="rest.food">
     </label>
@@ -62,7 +67,7 @@ export default {
             this.$router.push('/')
         },
         printaj(){
-          console.log(this.rest)
+          console.log("event")
         }
     }
 }
