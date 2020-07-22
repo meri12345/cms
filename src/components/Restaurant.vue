@@ -4,8 +4,8 @@
   <img src="../assets/kfc.jpg" class="card-img-top" alt="#404">
   <div class="card-body">
     <h5 class="card-title">{{name}}</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Check menu</a>
+    <p class="card-text">{{desc}}</p>
+    <router-link tag="a" :to="'/details/'+name" href="#" class="btn btn-primary">Check menu</router-link>
   </div>
 </div>
 </div>
@@ -14,6 +14,6 @@
 
 <script>
 export default {
-    props:['name']
+    props:['name','desc']
 }
 </script>
