@@ -95,5 +95,6 @@ export const state ={
         type:'',
         price:'',
         products:[]
-    }
+    },
+    auth:true
 }

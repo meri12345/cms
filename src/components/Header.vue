@@ -1,7 +1,7 @@
 <template>
 <div>
      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-         <a class="navbar-brand" href="#">Search</a>
+         <router-link v-if="getAuth" tag="button" to="/admin" class="navbar-brand btn btn-danger" href="#">Admin mode</router-link>
             <form class="form-inline my-2 my-lg-0">
                 <input @input="setSearch" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             </form>
@@ -37,7 +37,8 @@ export default {
 ...mapGetters(['getType',
                 'getProducts',
                 'getTypes',
-                'getPrices'])
+                'getPrices',
+                'getAuth'])
     },
     watch:{
         type(){

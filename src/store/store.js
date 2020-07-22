@@ -42,6 +42,9 @@ export const store = new Vuex.Store({
         },
         getProducts:(state)=>{
             return state.types
+        },
+        getAuth:(state)=>{
+            return state.auth
         }
     },
     mutations:{
@@ -62,6 +65,12 @@ export const store = new Vuex.Store({
             state.filter.search='',
             state.filter.type='',
             state.filter.price=''
+        },
+        'DELETE_REST':(state,name)=>{
+            const index = state.restaurants.findIndex((el)=>{
+                return el.name==name
+            })
+           state.restaurants.splice(index,1)
         }
     },
     actions:{
@@ -79,6 +88,9 @@ export const store = new Vuex.Store({
         },
         reset:({commit})=>{
             commit('RESET')
+        },
+        deleteRest:({commit},name)=>{
+            commit('DELETE_REST',name)
         }
     }
 })
