@@ -56,6 +56,12 @@ export const store = new Vuex.Store({
         },
         'SET_PRODUCTS':(state,value)=>{
             state.filter.products=[...value];
+        },
+        'RESET':(state)=>{
+            state.filter.products=[],
+            state.filter.search='',
+            state.filter.type='',
+            state.filter.price=''
         }
     },
     actions:{
@@ -70,6 +76,9 @@ export const store = new Vuex.Store({
         },
         setProducts:({commit},value)=>{
             commit('SET_PRODUCTS',value)
+        },
+        reset:({commit})=>{
+            commit('RESET')
         }
     }
 })

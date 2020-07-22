@@ -11,7 +11,7 @@
   </ul>
  <hr class="my-4">
   <p class="lead">
-    <router-link tag="a" to="/" class="btn btn-primary btn-lg" href="#" role="button">Homepage</router-link>
+    <a @click="navigate" class="btn btn-primary btn-lg" href="#" role="button">Homepage</a>
   </p>
 </div>
 </template>
@@ -25,6 +25,12 @@ export default {
             return this.getRestaurants.filter(el=>{
                 return el.name==this.$route.params.name
             })
+        }
+    },
+    methods:{
+        navigate(){
+            this.$store.dispatch('reset')
+            this.$router.push('/')
         }
     }
 }
