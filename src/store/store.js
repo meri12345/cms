@@ -31,6 +31,9 @@ export const store = new Vuex.Store({
 
             
         },
+        getUnfiltered:(state)=>{
+            return state.restaurants
+        },
         getType:(state)=>{
             return state.filter.type
         },
@@ -71,6 +74,9 @@ export const store = new Vuex.Store({
                 return el.name==name
             })
            state.restaurants.splice(index,1)
+        },
+        'ADD_PLACE':(state,obj)=>{
+            state.restaurants.push(obj)
         }
     },
     actions:{
@@ -91,6 +97,9 @@ export const store = new Vuex.Store({
         },
         deleteRest:({commit},name)=>{
             commit('DELETE_REST',name)
+        },
+        addPlace:({commit},obj)=>{
+            commit('ADD_PLACE',obj)
         }
     }
 })
