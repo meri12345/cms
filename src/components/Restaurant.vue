@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import VueSimpleImageEditor from 'vue-simple-image-editor'
 export default {
     props:['name','desc']
 }
