@@ -16,7 +16,7 @@
     <option v-for="price in getPrices" :key="price">{{price}}</option>
     <option value="">All</option> 
 </select>
-<div v-for="product in getProducts[type]" :key="product" class="form-check form-check-inline">
+<div v-for="product in getProducts" :key="product" class="form-check form-check-inline">
   <input class="form-check-input" type="checkbox" :id="product" :value="product" v-model="products">
   <label class="form-check-label" :for="product">{{product}}</label>
 </div>

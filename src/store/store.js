@@ -33,13 +33,13 @@ export const store = new Vuex.Store({
             return state.filter.type
         },
         getTypes:(state)=>{
-            return Object.keys(state.types)
+            return state.types
         },
         getPrices:(state)=>{
             return state.prices
         },
         getProducts:(state)=>{
-            return state.types
+            return state.products
         },
         getAuth:(state)=>{
             return state.auth

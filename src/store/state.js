@@ -85,10 +85,8 @@ export const state ={
             desc:"Copeland's is a restaurant chain started by New Orleans native Al Copeland in 1983."
         }
     ],
-    types:{
-        "Fast Food":["chicken","hamburger","pizza","ice cream"],
-        "Casual Dining":["beef","sea food","vegan","pasta","salad"],
-    },
+    types:['Fast Food','Casual Dining'],
+    products:["beef","sea food","vegan","pasta","salad","chicken","hamburger","pizza","ice cream"],
     prices:["Cheap","Medium","Expensive"],
     filter:{
         search:'',

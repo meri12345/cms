@@ -12,7 +12,7 @@
     </select>
     </label>
   </div>
-  <div class="form-group" v-for="el in getProducts[type]" :key="el">
+  <div class="form-group" v-for="el in getProducts" :key="el">
     <label >{{el}}
     <input type="checkbox" :value="el" v-model="food">
     </label>
