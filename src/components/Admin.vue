@@ -14,10 +14,10 @@
 
   </thead>
   <tbody>
-    <tr v-for="place in getUnfiltered" :key="place.name">
+    <tr v-for="(place,index) in getUnfiltered" :key="place.name">
       <td>{{place.name}}</td>
       <td>{{place.type}}</td>
-      <td><router-link :to="'/admin/edit/'+place.name" tag="button" class="btn btn-primary">Edit</router-link> <button @click="deleteRest(place.name)" class="btn btn-danger">Delete</button></td>
+      <td><router-link :to="'/admin/edit/'+index" tag="button" class="btn btn-primary">Edit</router-link> <button @click="deleteRest(place.name)" class="btn btn-danger">Delete</button></td>
       
     </tr>
   </tbody>

@@ -7,29 +7,24 @@ export const store = new Vuex.Store({
    state,
     getters:{
         getRestaurants:(state)=>{
-           
-            const arr1 = state.restaurants.filter(el=>{
-                return el.name.toLowerCase().match(state.filter.search.toLowerCase())
-            })
-            const arr2 = arr1.filter(el=>{
-                return el.type.match(state.filter.type)
-            })
 
-            const arr3 = arr2.filter(el=>{
-                return el.priceRange.match(state.filter.price)
-            })
-            if(state.filter.products.length==0){
-                return arr3
-            }
-            else{
-                return arr3.filter(el=>{
-                    return el.food.some(product=>{
+            return (((state.restaurants.filter(el=>{
+                return el.name.toLowerCase().match(state.filter.search.toLowerCase())
+            })).filter(el=>{
+                return el.type.match(state.filter.type)
+            })).filter(item=>{
+                return item.priceRange.match(state.filter.price)
+            })).filter(fo=>{
+                if(state.filter.products.length==0){
+                    return fo
+                }
+                else{
+                    return fo.food.some(product=>{
                         return state.filter.products.includes(product)
                     })
-                })
-            }
-
-            
+                }
+            })
+           
         },
         getUnfiltered:(state)=>{
             return state.restaurants
@@ -48,6 +43,15 @@ export const store = new Vuex.Store({
         },
         getAuth:(state)=>{
             return state.auth
+        },
+        getByName:(state,name)=>{
+            
+            console.log(state.restaurants.find(el=>{
+                return el.name==name
+            }))
+        },
+        getFilters:(state)=>{
+            return state.filter
         }
     },
     mutations:{
@@ -77,7 +81,12 @@ export const store = new Vuex.Store({
         },
         'ADD_PLACE':(state,obj)=>{
             state.restaurants.push(obj)
+        },
+        'UPDATE_LIST':(state,obj)=>{
+           const {data,index}=obj;
+           state.restaurants[index]=data
         }
+
     },
     actions:{
         setState:({commit},value)=>{
@@ -100,6 +109,9 @@ export const store = new Vuex.Store({
         },
         addPlace:({commit},obj)=>{
             commit('ADD_PLACE',obj)
+        },
+        updateList:({commit},obj)=>{
+            commit('UPDATE_LIST',obj)
         }
     }
 })
