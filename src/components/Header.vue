@@ -1,29 +1,64 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">APP </a>
-    <form class="form-inline my-2 my-lg-0">
-      <input @input="setSearch" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" v-model="search">
-    </form>
-  
-</nav>
+<div>
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+         <a class="navbar-brand" href="#">Search</a>
+            <form class="form-inline my-2 my-lg-0">
+                <input @input="setSearch" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            </form>
+        </nav>
+    <label for="type">Choose Type:</label>
+<select id="type" class="custom-select" v-model="type">
+    <option v-for="type in getTypes" :key="type">{{type}}</option>
+    <option value="">All</option> 
+</select>
+    <label for="price">Choose Price Range:</label>
+<select id="price" class="custom-select" v-model="price">
+    <option v-for="price in getPrices" :key="price">{{price}}</option>
+    <option value="">All</option> 
+</select>
+<div v-for="product in getProducts[type]" :key="product" class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" :id="product" :value="product" v-model="products">
+  <label class="form-check-label" :for="product">{{product}}</label>
+</div>
+</div>
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
     data(){
-        return{
-            search:""
-        }
+      return {
+        type:'',
+        price:'',
+        products:[]
+      }  
     },
     computed:{
-        types(){
-            return this.$store.getters.getTypes
+...mapGetters(['getType',
+                'getProducts',
+                'getTypes',
+                'getPrices'])
+    },
+    watch:{
+        type(){
+            this.products=[];
+            this.$store.dispatch('setType',this.type)
+        },
+        price(){
+            this.$store.dispatch('setPrice',this.price)
+        },
+        products(){
+            this.$store.dispatch('setProducts',this.products)
         }
     },
     methods:{
         setSearch(event){
             this.$store.dispatch('setState',event.target.value);
+        },
+        setType(value){
+           this.$store.dispatch('setType',value)
         }
     }
+
 }
 </script>
