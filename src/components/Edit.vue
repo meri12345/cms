@@ -2,7 +2,7 @@
    <form>
   <div class="form-group">
     <label >Name
-    <input @input="printaj" type="text" class="form-control" v-model="rest.name">
+    <input type="text" class="form-control" v-model="rest.name">
     </label>
   </div>
     <div class="form-group">
@@ -29,6 +29,11 @@
     <textarea name="desc" cols="30" rows="3" v-model="rest.desc"></textarea>
     </label>
   </div>
+  <div class="form-group">
+    <label >URL
+    <input type="text" class="form-control" v-model="rest.pic">
+    </label>
+  </div>
   <button type="submit" @click.prevent="edit" class="btn btn-success">Submit</button>
 </form>
 </template>
@@ -48,7 +53,8 @@ export default {
             type:'',
             food:[],
             priceRange:'Cheap',
-            desc:''
+            desc:'',
+            pic:''
         }
     },
     methods:{

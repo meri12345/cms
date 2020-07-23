@@ -2,7 +2,7 @@
 <div>
 <app-header></app-header>
    <div class="row"> 
-   <app-restaurant v-for="rest in list" :key="rest.name" :name="rest.name" :desc="rest.desc"></app-restaurant>
+   <app-restaurant v-for="rest in list" :url="rest.pic" :key="rest.name" :name="rest.name" :desc="rest.desc"></app-restaurant>
    </div>
 </div>   
 </template>

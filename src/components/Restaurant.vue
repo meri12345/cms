@@ -1,7 +1,8 @@
 <template>
 <div class="col-sm-4">
 <div class="card" style="width: 18rem;">
-  <img src="../assets/kfc.jpg" class="card-img-top" alt="#404">
+  <v-img  height="200"
+       :src="url" alt="#404"></v-img>
   <div class="card-body">
     <h5 class="card-title">{{name}}</h5>
     <p class="card-text">{{desc}}</p>
@@ -13,8 +14,8 @@
 </template>
 
 <script>
-import VueSimpleImageEditor from 'vue-simple-image-editor'
+
 export default {
-    props:['name','desc']
+    props:['name','desc','url']
 }
 </script>

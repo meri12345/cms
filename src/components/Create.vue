@@ -29,6 +29,11 @@
     <textarea name="desc" cols="30" rows="3" v-model="desc"></textarea>
     </label>
   </div>
+  <div class="form-group">
+    <label >URL:
+    <input type="text" class="form-control" v-model="pic">
+    </label>
+  </div>
   <button type="submit" @click.prevent="addPlace" class="btn btn-success">Submit</button>
 </form>
 </template>
@@ -45,7 +50,8 @@ export default {
             type:'Fast Food',
             food:[],
             priceRange:'Cheap',
-            desc:''
+            desc:'',
+            pic:''
         }
     },
     methods:{
@@ -55,7 +61,8 @@ export default {
                 type:this.type,
                 food:this.food,
                 priceRange:this.priceRange,
-                desc:this.desc
+                desc:this.desc,
+                pic:this.pic
             }
             this.$store.dispatch('addPlace',obj)
             this.$router.push({path:'/'})
