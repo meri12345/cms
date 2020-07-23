@@ -1,5 +1,5 @@
 <template>
-   <form>
+   <form class="float">
   <div class="form-group">
     <label >Name
     <input type="text" class="form-control" v-model="rest.name">
@@ -66,10 +66,17 @@ export default {
             this.$store.dispatch('updateList',obj);
             this.$store.dispatch('reset')
             this.$router.push('/')
-        },
-        printaj(){
-          console.log("event")
         }
     }
 }
 </script>
+
+<style scoped>
+.float{
+  border: 2px solid #eee;
+  box-shadow: 2px 3px 4px grey;
+  width:50%;
+  margin:auto;
+  padding:50px;
+}
+</style>

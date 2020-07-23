@@ -1,26 +1,28 @@
 <template>
-    <form>
+    <form class="float">
   <div class="form-group" >
     <div :class="{invalid:$v.name.$error}">
-    <label >Name
-      <input type="text" @input="$v.name.$touch()" class="form-control" v-model="name" required>
+    <label >Name:
+     <input type="text" @input="$v.name.$touch()" class="form-control" v-model="name" required>
     </label>  
       <p class="err" v-if=$v.name.$error>This field is required</p>
     </div>
    
   </div>
     <div class="form-group">
-    <label>Type
+    <label>Type:
     <select class="form-control" name="type" v-model="type">
         <option v-for="type in getTypes" :key="type">{{type}}</option>
     </select>
     </label>
+    <p class="info" v-if="food.length==0">**Have to select at least 1 product**</p>
   </div>
-  <div  v-for="el in getProducts" :key="el">
+  <div  class="form group" v-for="el in getProducts" :key="el">
     <label >{{el}}
     <input type="checkbox" :value="el" v-model="food">
     </label>
   </div>
+  <hr>
   <div class="form-group">
     <label>Price Range
     <select class="form-control" name="type" v-model="priceRange">
@@ -41,7 +43,7 @@
      <p class="err" v-if=$v.url.$error>This field is required</p>
     </label></div>  
   </div>
-  <button type="submit" :disabled="$v.$invalid" @click.prevent="addPlace" class="btn btn-success">Submit</button>
+  <button type="submit" :disabled="$v.$invalid || food.length==0" @click.prevent="addPlace" class="btn btn-success">Submit</button>
 </form>
 </template>
 
@@ -97,5 +99,18 @@ export default {
 
 .invalid input{
   background-color: salmon;
+}
+
+.info{
+  color:green;
+  font-weight: 600;
+}
+
+.float{
+  border: 2px solid #eee;
+  box-shadow: 2px 3px 4px grey;
+  width:50%;
+  margin:auto;
+  padding:50px;
 }
 </style>
