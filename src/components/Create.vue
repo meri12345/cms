@@ -86,6 +86,7 @@ export default {
                 pic:this.url
             }
             this.$store.dispatch('addPlace',obj)
+            this.$store.dispatch('reset')
             this.$router.push({path:'/'})
         }
     }
