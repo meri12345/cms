@@ -5,8 +5,11 @@ import VueRouter from 'vue-router'
 import {routes} from './routes'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
-Vue.use(Vuetify)
+import Vuelidate from 'vuelidate'
 
+
+Vue.use(Vuetify)
+Vue.use(Vuelidate)
 Vue.use(VueRouter)
 
 const router = new VueRouter({
