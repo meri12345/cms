@@ -7,7 +7,7 @@
   </div>
     <div class="form-group">
     <label>Type
-    <select  name="type" v-model="rest.type">
+    <select class="form-control" name="type" v-model="rest.type">
         <option :value="type" v-for="type in getTypes" :key="type">{{type}}</option>
     </select>
     </label>
@@ -19,14 +19,14 @@
   </div>
   <div class="form-group">
     <label>Price Range
-    <select name="price" v-model="rest.priceRange">
+    <select class="form-control" name="price" v-model="rest.priceRange">
         <option v-for="price in getPrices" :key="price">{{price}}</option>
     </select>
     </label>
   </div>
   <div class="form-group">
     <label>Description:
-    <textarea name="desc" cols="30" rows="3" v-model="rest.desc"></textarea>
+    <textarea name="desc" cols="30" rows="3" class="form-control"  v-model="rest.desc"></textarea>
     </label>
   </div>
   <div class="form-group">

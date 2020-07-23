@@ -7,26 +7,26 @@
   </div>
     <div class="form-group">
     <label>Type
-    <select name="type" v-model="type">
+    <select class="form-control" name="type" v-model="type">
         <option v-for="type in getTypes" :key="type">{{type}}</option>
     </select>
     </label>
   </div>
-  <div class="form-group" v-for="el in getProducts" :key="el">
+  <div  v-for="el in getProducts" :key="el">
     <label >{{el}}
     <input type="checkbox" :value="el" v-model="food">
     </label>
   </div>
   <div class="form-group">
     <label>Price Range
-    <select name="type" v-model="priceRange">
+    <select class="form-control" name="type" v-model="priceRange">
         <option v-for="price in getPrices" :key="price">{{price}}</option>
     </select>
     </label>
   </div>
   <div class="form-group">
     <label>Description:
-    <textarea name="desc" cols="30" rows="3" v-model="desc"></textarea>
+    <textarea name="desc" cols="30" rows="3" class="form-control" v-model="desc"></textarea>
     </label>
   </div>
   <div class="form-group">
