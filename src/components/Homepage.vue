@@ -1,7 +1,6 @@
 <template>
 <div>
 <app-header></app-header>
-{{filters}}
    <div class="row"> 
    <app-restaurant v-for="rest in list" :url="rest.pic" :key="rest.name" :name="rest.name" :desc="rest.desc"></app-restaurant>
    </div>
